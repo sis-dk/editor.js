@@ -255,8 +255,10 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * Removes UI and its components
    */
   public destroy(): void {
-    this.flipper.deactivate();
-    this.flipper = null;
+    if(this.flipper) {
+      this.flipper.deactivate();
+      this.flipper = null;
+    }
 
     this.Editor.ConversionToolbar.destroy();
   }
