@@ -107,9 +107,11 @@ export default class BlockSettings extends Module<BlockSettingsNodes> {
    * Destroys module
    */
   public destroy(): void {
-    this.flipper.deactivate();
-    this.flipper = null;
-    this.removeAllNodes();
+    if(this.flipper) {
+      this.flipper.deactivate();
+      this.flipper = null;
+      this.removeAllNodes();
+    }
   }
 
   /**
